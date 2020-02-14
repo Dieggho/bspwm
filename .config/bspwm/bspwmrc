@@ -1,0 +1,54 @@
+#! /bin/sh
+
+
+bspc monitor -d Main web Net Doc Term Media Desk
+
+bspc config border_width         3
+bspc config window_gap           0
+
+bspc config pointer_modifier mod5
+
+bspc config normal_border_color "#2B2E37"
+bspc config focused_border_color "#1C1F26"
+bspc config urgent_border_color "#B58900"
+bspc config presel_border_color "#26E2FF"
+
+bspc config split_ratio          0.50
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+
+bspc rule -a Telegram desktop='^1' follow=on
+bspc rule -a deadbeef desktop='^1' follow=on
+
+bspc rule -a firefox desktop='^2' follow=on
+
+bspc rule -a Tor Browser desktop='^3' follow=on
+bspc rule -a Transmission desktop='^3' follow=on
+
+bspc rule -a Leafpad desktop='^4' follow=on
+bspc rule -a Epdfview desktop='^4' follow=on
+
+bspc rule -a Terminal desktop='^5' follow=on
+bspc rule -a root-terminal desktop='^5' follow=on
+
+bspc rule -a ffplay desktop='^6' follow=on
+bspc rule -a Sxiv desktop='^6' state=floating follow=on
+bspc rule -a feh desktop='^6' follow=on
+bspc rule -a VirtualBox Machine='^6' follow=on
+bspc rule -a VirtualBox Manager='^6' follow=on
+bspc rule -a VirtualBox='^6' follow=on
+bspc rule -a qemu-system-x86_64='^6' follow=on
+
+bspc rule -a simplescreenrecorder desktop='^7' follow=on
+
+bspc rule -a st-256color state=floating follow=on
+bspc rule -a Lxtask state=floating follow=on
+bspc rule -a SmartTerm state=floating follow=on
+
+bspc rule -a Gimp desktop='^7' state=floating follow=on
+bspc rule -a Chromium desktop='^2'
+bspc rule -a mplayer2 state=floating
+bspc rule -a Kupfer.py focus=on
+bspc rule -a Screenkey manage=off
+
+#bspc rule -a  desktop='^' follow=on
