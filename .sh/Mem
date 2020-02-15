@@ -1,0 +1,3 @@
+#!/bin/bash
+echo Ram`free | grep Mem | awk '{printf "%3.0f%\n",$3/$2 * 100.0}'` Swap`free | grep Swap | awk '{printf "%3.0f%\n",$3/$2 * 100.0}'`
+
