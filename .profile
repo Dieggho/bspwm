@@ -39,6 +39,12 @@ unset TERMCAP
 # Man is much better than us at figuring this out
 unset MANPATH
 
+PANEL_FIFO=/tmp/panel-fifo
+PANEL_HEIGHT=19
+PANEL_WM_NAME=bspwm_panel
+export PANEL_FIFO PANEL_HEIGHT PANEL_FONT PANEL_WM_NAME
+
+
 export EDITOR=nano
 export LANG=en_US.UTF-8
 export QT_QPA_PLATFORMTHEME=qt5ct
@@ -56,5 +62,4 @@ xcompmgr &
 devmon &
 qjoypad &
 sxhkd &
-tint2 -c /home/void/.config/tint2/left.tint2rc &
-tint2 -c /home/void/.config/tint2/right.tint2rc &
+
