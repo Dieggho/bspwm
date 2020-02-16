@@ -3,7 +3,7 @@
 #
 
 Pause
-	lock
+	slock systemctl suspend
 
 Print
 	screenshot
