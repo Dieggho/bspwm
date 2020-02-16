@@ -139,6 +139,9 @@ mod5 + {_,shift + }{KP_End,KP_Down,KP_Next,KP_Left,KP_Begin,KP_Right,KP_Home}
 super + ctrl + {a,s,w,d}
 	bspc node -p {west,south,north,east}
 
+mod5 + ctrl + {ccedilla,dead_tilde,dead_acute,bracketright}
+        bspc node -p {west,south,north,east}
+
 # preselect the ratio
 super + ctrl + {1-9}
 	bspc node -o 0.{1-9}
