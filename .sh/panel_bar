@@ -6,11 +6,12 @@
 
 num_mon=$(bspc query -M | wc -l)
 
+
 while read -r line ; do
 	case $line in
 		S*)
 			# clock output
-			sys="%{F$COLOR_SYS_FG}%{B$COLOR_SYS_BG} ${line#?} %{B-}%{F-}"
+			sys="%{F$COLOR_SYS_FG}%{B$COLOR_SYS_BG}%{A:pactl set-sink-volume 0 +5%:}%{A3:pactl set-sink-volume 0 -5%:} ${line#?} %{A}%{A}%{B-}%{F-}"
 			;;
 		T*)
 			# xtitle output
@@ -103,7 +104,7 @@ while read -r line ; do
 								fi
 								;;
 						esac
-						wm="${wm}%{F${FG}}%{B${BG}}%{U${UL}}%{+u}%{A:bspc desktop -f ${name}:} ${name} %{A}%{B-}%{F-}%{-u}"
+						wm="${wm}%{F${FG}}%{B${BG}}%{U${UL}}%{+u}%{A:bspc desktop -f ${name}:}%{A3:bspc node -d ${name}:} ${name} %{A}%{A}%{B-}%{F-}%{-u}"
 						;;
 					[LTG]*)
 						# layout, state and flags
@@ -114,5 +115,5 @@ while read -r line ; do
 			done
 			;;
 	esac
-	printf "%s\n" "%{l}${wm}%{c}${title}%{r}${sys}"
+	printf "%s\n" "%{l}${wm}${title}%{r}${sys}"
 done
