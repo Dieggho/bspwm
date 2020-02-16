@@ -1,16 +1,22 @@
-     ###########################################################################################################################################################################################
+################################################################################################################
 # wm independent hotkeys
 #
 
 Pause
 	lock
 
+Print
+	screenshot
+
+mod5 + ctrl + Delete
+	reboot
+
 # terminal emulator
 mod5 + {_,shift + } Return
 	{terminal,root-terminal}
 
-ctrl + alt + t
-	smart-terminal
+ctrl + alt + {t,p}
+	{smart-terminal,python-shell}
 
 # program launcher
 mod5 + p
@@ -21,38 +27,19 @@ mod5 + BackSpace
 	pkill -USR1 -x sxhkd; notify-send "sxhkd reloaded"
 
 # Applications
-mod5 + {f,t,r,d,l,a,n,s}
-	{firefox,telegram-desktop,rox,deadbeef,leafpad,mtp,st-arc -e connmanctl,session-manager}
+mod5 + {f,t,r,d,l,a,n,Delete,period,KP_Divide}
+	{firefox,telegram-desktop,rox,deadbeef,leafpad,mtp,st-arc -e connmanctl,lxtask,rox,smart-terminal}
 
-mod5 + {period,KP_Divide}
-	{rox,smart-terminal}
+# Volume
+mod5 + {F12,F11,F10}
+	{pactl set-sink-volume 0 +5%,pactl set-sink-volume 0 -5%,pactl set-sink-mute 0 toggle}
+
+# Close window
+mod5 + k
+	xdo close
 
 
-mod5 + shift + p
-	python-shell
-
-
-
-# Volume Up
-mod5 + F12
-	pactl set-sink-volume 0 +5%
-
-# Volume Down
-mod5 + F11
-	pactl set-sink-volume 0 -5%
-
-# Volume Mute
-mod5 + F10
-	pactl set-sink-mute 0 toggle
-
-Print
-	screenshot
-
-mod5 + ctrl + Delete
-	reboot
-
-###########################################################################################################################################################################################
-#
+#################################################################################################################
 # bspwm hotkeys
 #
 
@@ -61,8 +48,8 @@ super + alt + {q,r}
 	bspc {quit,wm -r}
 
 # close and kill
-mod5 + k
-	bspc node -k
+# mod5 + k
+#	bspc node -k
 
 # alternate between the tiled and monocle layout
 super + m
@@ -70,7 +57,6 @@ super + m
 
 mod5 + m
 	bspc desktop -l next
-
 
 # send the newest marked node to the newest preselected node
 super + y
@@ -113,7 +99,6 @@ super + {_,shift + }{a,s,w,d}
 mod5 + {_,shift + }{ccedilla,dead_tilde,dead_acute,bracketright}
 	bspc node -{f,s} {west,south,north,east}
 
-
 # focus the node for the given path jump
 super + {p,b,comma,period}
 	bspc node -f @{parent,brother,first,second}
@@ -143,10 +128,8 @@ super + {o,i}
 super + {_,shift + }{1-9,0}
 	bspc {desktop -f,node -d} '^{1-9,10}'
 
-
 mod5 + {_,shift + }{KP_End,KP_Down,KP_Next,KP_Left,KP_Begin,KP_Right,KP_Home}
 	bspc {desktop -f,node -d} '^{1-7}'
-
 
 #
 # preselect
@@ -184,27 +167,20 @@ super + alt + {a,s,w,d}
 mod5 + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
 
-
 super + alt + space
 	pkill -x panel; panel
 
-
-
 ~button2
-	bspc query -N -n pointed > /dev/null || bspc node -k
-
+	bspc query -N -n pointed > /dev/null || xdo close
 
 ~button3
 	bspc query -N -n pointed > /dev/null || alt_gr
 
-
 ~button4
 	bspc query -N -n pointed > /dev/null || bspc node -f prev
-
 
 ~button5
 	bspc query -N -n pointed > /dev/null || bspc node -f next
 
-
 #
-###########################################################################################################################################################################################
+################################################################################################################
