@@ -180,9 +180,6 @@ super + alt + space
 ~button2
 	bspc query -N -n pointed > /dev/null || xdo close
 
-~button3
-	bspc query -N -n pointed > /dev/null || alt_gr
-
 ~button4
 	bspc query -N -n pointed > /dev/null || bspc node -f prev
 
