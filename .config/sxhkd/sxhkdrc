@@ -151,6 +151,10 @@ super + ctrl + space
 super + ctrl + shift + space
 	bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
 
+super + r
+	bspc node @/ -R 90
+
+
 #
 # move/resize
 #
