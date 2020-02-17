@@ -1,2 +1,11 @@
 #!/bin/bash
-echo `ip a | grep wlp2s0 | grep inet | awk '{print $2}'| cut -d/ -f1`
+
+W=`ip a | grep wlp1s0 | grep inet | awk '{print $2}'| cut -d/ -f1`
+
+if [[ $W ]]
+	then
+		echo  On
+	else
+		echo  Off
+fi
+#echo `ip a | grep wlp2s0 | grep inet | awk '{print $2}'| cut -d/ -f1`

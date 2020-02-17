@@ -3,7 +3,7 @@
 clock(){
 	while true
 	do 
-	date "+S $(echo `Mem` `Vol` `Bat` ) %H:%M %a %d/%m"
+	date "+S $(echo `Ip` `Mem` `Vol` `Bat` ) %H:%M %a %d/%m"
 	sleep 0.5
 	done
 }
@@ -19,7 +19,7 @@ trap 'trap - TERM; kill 0' INT TERM QUIT EXIT
 [ -e "$PANEL_FIFO" ] && rm "$PANEL_FIFO"
 mkfifo "$PANEL_FIFO"
 
-xtitle -sf 'T%s\n' -t92 > "$PANEL_FIFO" &
+xtitle -sf 'T%s\n' -t91 > "$PANEL_FIFO" &
 clock > "$PANEL_FIFO" &
 bspc subscribe report > "$PANEL_FIFO" &
 
