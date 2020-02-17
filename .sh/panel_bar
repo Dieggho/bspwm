@@ -5,7 +5,9 @@
 . panel_colors
 
 num_mon=$(bspc query -M | wc -l)
-Menu="%{F#366091}%{B#101014}%{A:rofi -show-icons -width 450 -show drun:}%{A3:session-manager:} Menu %{A}%{A}%{B-}%{F-}"
+Menu="%{F#ffffff}%{A:rofi -show-icons -width 450 -show drun:}    %{A}%{F-}"
+
+Logon="%{F#ffffff}%{A:session-manager:}  %{A}%{F-}"
 
 while read -r line ; do
 	case $line in
@@ -124,7 +126,7 @@ while read -r line ; do
 						%{A:bspc node -t tiled:}\
 						%{A2:bspc desktop -l next:}\
 						%{A3:bspc node -t floating:}\
-						%{A4:bspc node @/ -R 90:}\
+						%{A4:bspc node @/ -R -90:}\
 						%{A5:bspc node @/ -R 90:} ${name}%{A}%{A}%{A}%{A}%{A}%{B-}%{F-}"
 						;;
 				esac
@@ -132,5 +134,5 @@ while read -r line ; do
 			done
 			;;
 	esac
-	printf "%s\n" "%{l}${Menu}${wm}${title}%{r}${sys}"
+	printf "%s\n" "%{l}${Menu}${wm}${title}%{r}${sys}${Logon}"
 done

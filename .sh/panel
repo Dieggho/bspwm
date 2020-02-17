@@ -25,7 +25,7 @@ bspc subscribe report > "$PANEL_FIFO" &
 
 . panel_colors
 
-panel_bar < "$PANEL_FIFO" | lemonbar -a 128 -u 2 -n "$PANEL_WM_NAME" -g 1366x$PANEL_HEIGHT -f "-*-dejavu sans mono-medium-r-normal--*-80-*-*-*-*-iso10646-1" -f -f FontAwesome-10 -F "$COLOR_DEFAULT_FG" -B "$COLOR_DEFAULT_BG" | sh &
+panel_bar < "$PANEL_FIFO" | lemonbar -a 128 -u 2 -n "$PANEL_WM_NAME" -g 1366x$PANEL_HEIGHT -f "-*-dejavu sans mono-medium-r-normal--*-80-*-*-*-*-iso10646-1" -f FontAwesome-9 -F "$COLOR_DEFAULT_FG" -B "$COLOR_DEFAULT_BG" | sh &
 
 wid=$(xdo id -m -a "$PANEL_WM_NAME")
 xdo above -t "$(xdo id -N Bspwm -n root | sort | head -n 1)" "$wid"

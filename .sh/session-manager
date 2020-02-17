@@ -9,7 +9,7 @@ OPTIONS="\
 LAUNCHER="                      \
 rofi                            \
 -dmenu                          \
--location 1                     \
+-location 3                     \
 -lines 4                        \
 -width 13                       \
 -yoffset 19                     \
