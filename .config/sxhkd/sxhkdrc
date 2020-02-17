@@ -72,9 +72,6 @@ super + g
 
 # set the window state
 
-mod5 + {button4,button5}
-	bspc node -t {floating,tiled}
-
 mod5 + button2
 	bspc node -k
 
@@ -177,8 +174,8 @@ mod5 + {Left,Down,Up,Right}
 super + alt + space
 	pkill -x panel; panel
 
-~button2
-	bspc query -N -n pointed > /dev/null || xdo close
+#~button2
+#	bspc query -N -n pointed > /dev/null || Menu
 
 #~button4
 #	bspc query -N -n pointed > /dev/null || bspc node -f prev
