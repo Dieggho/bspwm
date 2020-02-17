@@ -26,7 +26,7 @@ bspc rule -a deadbeef desktop='^1' follow=on
 bspc rule -a firefox desktop='^2' follow=on
 
 bspc rule -a "Tor Browser" desktop='^3' follow=on
-bspc rule -a Transmission desktop='^3' follow=on
+bspc rule -a Transmission-gtk desktop='^3' follow=on
 
 bspc rule -a Leafpad desktop='^4' follow=on
 bspc rule -a Epdfview desktop='^4' follow=on
