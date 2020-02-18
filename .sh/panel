@@ -3,11 +3,42 @@
 clock(){
 	while true
 	do 
-	date "+S $(echo `Ip` `Mem` `Vol` `Bat` ) %H:%M %a %d/%m"
+	date "+S %H:%M %a %d/%m"
 	sleep 0.5
 	done
 }
 
+wifi(){
+	while true
+	do 
+	echo X `Ip`
+	sleep 0.5
+	done
+}
+
+ram(){
+	while true
+	do 
+	echo R `Mem`
+	sleep 0.5
+	done
+}
+
+audio(){
+	while true
+	do 
+	echo V `Vol`
+	sleep 0.5
+	done
+}
+
+battery(){
+	while true
+	do 
+	echo B `Bat`
+	sleep 0.5
+	done
+}
 
 if xdo id -a "$PANEL_WM_NAME" > /dev/null ; then
 	printf "%s\n" "The panel is already running." >&2
@@ -19,13 +50,17 @@ trap 'trap - TERM; kill 0' INT TERM QUIT EXIT
 [ -e "$PANEL_FIFO" ] && rm "$PANEL_FIFO"
 mkfifo "$PANEL_FIFO"
 
-xtitle -sf 'T%s\n' -t91 > "$PANEL_FIFO" &
+xtitle -sf 'T%s\n' -t85 > "$PANEL_FIFO" &
+wifi > "$PANEL_FIFO" &
+ram > "$PANEL_FIFO" &
+audio > "$PANEL_FIFO" &
+battery > "$PANEL_FIFO" &
 clock > "$PANEL_FIFO" &
 bspc subscribe report > "$PANEL_FIFO" &
 
 . panel_colors
 
-panel_bar < "$PANEL_FIFO" | lemonbar -a 128 -u 2 -n "$PANEL_WM_NAME" -g 1366x$PANEL_HEIGHT -f "-*-dejavu sans mono-medium-r-normal--*-80-*-*-*-*-iso10646-1" -f FontAwesome-9 -F "$COLOR_DEFAULT_FG" -B "$COLOR_DEFAULT_BG" | sh &
+panel_bar < "$PANEL_FIFO" | lemonbar -a 256 -u 2 -n "$PANEL_WM_NAME" -g 1366x$PANEL_HEIGHT -f "-*-dejavu sans mono-medium-r-normal--*-80-*-*-*-*-iso10646-1" -f FontAwesome-9 -F "$COLOR_DEFAULT_FG" -B "$COLOR_DEFAULT_BG" | sh &
 
 wid=$(xdo id -m -a "$PANEL_WM_NAME")
 xdo above -t "$(xdo id -N Bspwm -n root | sort | head -n 1)" "$wid"
