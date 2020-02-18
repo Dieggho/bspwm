@@ -24,9 +24,10 @@ while read -r line ; do
 		V*)
 			# volume
 			volume="%{F$COLOR_SYS_FG}%{B$COLOR_SYS_BG}\
+			%{A:st-arc -c SmartTerm -t 'Pulsemixer' -e sh -c 'pulsemixer' &:}\
 			%{A2:pactl set-sink-mute 0 toggle:}\
 			%{A4:pactl set-sink-volume 0 +5%:}\
-			%{A5:pactl set-sink-volume 0 -5%:} ${line#?}%{A}%{A}%{A}%{B-}%{F-}"
+			%{A5:pactl set-sink-volume 0 -5%:} ${line#?}%{A}%{A}%{A}%{A}%{B-}%{F-}"
 			;;
 
 		B*)
