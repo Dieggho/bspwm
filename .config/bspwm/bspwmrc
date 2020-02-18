@@ -20,8 +20,8 @@ bspc config split_ratio          0.50
 bspc config borderless_monocle   false
 bspc config gapless_monocle      true
 
-bspc rule -a Telegram desktop='^1' follow=on
-bspc rule -a deadbeef desktop='^1' follow=on
+bspc rule -a TelegramDesktop desktop='^1' follow=on
+bspc rule -a Deadbeef desktop='^1' follow=on
 
 bspc rule -a firefox desktop='^2' follow=on
 
