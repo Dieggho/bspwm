@@ -47,7 +47,7 @@ mod5 + k
 
 # quit/restart bspwm
 super + alt + {q,r}
-	bspc {quit,wm -r; pkill panel; panel}
+	bspc {quit,wm -r}
 
 # close and kill
 # mod5 + k
