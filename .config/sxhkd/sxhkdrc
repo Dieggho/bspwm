@@ -19,8 +19,8 @@ ctrl + alt + {t,p}
 	{smart-terminal,python-shell}
 
 # program launcher
-mod5 + p
-	dmenu_run -fn 'Sans-8' -nb '#2B2E37' -nf '#d8d8d8' -sb '#5294E2' -sf '#d8d8d8' -p run
+mod5 + {_,shift + } p
+	{dmenu_run -fn 'Sans-8' -nb '#2B2E37' -nf '#d8d8d8' -sb '#5294E2' -sf '#d8d8d8' -p run,python-shell}
 
 # make sxhkd reload its configuration files:
 mod5 + BackSpace
