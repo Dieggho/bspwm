@@ -3,6 +3,7 @@
 [ -e "$PANEL_FIFO" ] && bspc subscribe report > "$PANEL_FIFO" &
 pgrep -x panel > /dev/null || panel &
 
+
 bspc monitor -d Main Web Net Doc Term Media Desk
 
 bspc config border_width         3
