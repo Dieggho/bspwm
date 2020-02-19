@@ -147,8 +147,8 @@ while read -r line ; do
 						%{A:bspc node -t tiled:}\
 						%{A2:bspc desktop -l next:}\
 						%{A3:bspc node -t floating:}\
-						%{A4:bspc node @/ -R -90:}\
-						%{A5:bspc node @/ -R 90:} ${name}%{A}%{A}%{A}%{A}%{A}%{B-}%{F-}"
+						%{A4:bspc node -s prev.local:}\
+						%{A5:bspc node -s next.local:} ${name}%{A}%{A}%{A}%{A}%{A}%{B-}%{F-}"
 						;;
 				esac
 				shift
