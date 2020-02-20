@@ -1,5 +1,4 @@
 #!/bin/bash
-#!/bin/bash
  
 INTERVAL="0.1"  # update interval in seconds
  
